@@ -8,12 +8,11 @@
     ".types",
     "tests",
     "tools",
-    ".sift",
+    ".sloppatrol",
     ".release",
     ".claude",
     ".bugpatrol",
-    ".speedpatrol",
-    ".sloppatrol"
+    ".speedpatrol"
   ],
   "workspace.checkThirdParty": false,
   "diagnostics.libraryFiles": "Disable",
