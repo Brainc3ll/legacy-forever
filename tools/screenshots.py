@@ -38,6 +38,7 @@ from wowmock import (
     MenuCheckbox,
     MenuDivider,
     MenuTitle,
+    TooltipLine,
     TrackerBlock,
     TrackerModule,
     Ui,
@@ -50,6 +51,7 @@ from wowmock import (
     map_overlays,
     objective_tracker,
     scene,
+    tooltip,
     world_map_frame,
 )
 
@@ -424,7 +426,7 @@ def main_menu(ui, live):
 # ------------------------------------------------------------------------------------------ the scenes
 
 
-def world_map(ui, data, live, ui_map=ASHENVALE, collapsed=False):
+def world_map(ui, data, live, ui_map=ASHENVALE, collapsed=False, entrance=False):
     """The world map on a Kalimdor zone with the addon's shading, pins, corner and button drawn in."""
     zone = data["completion"][ui_map]
     name = ui.table("UiMap")[str(ui_map)]["Name_lang"]
@@ -449,6 +451,39 @@ def world_map(ui, data, live, ui_map=ASHENVALE, collapsed=False):
                 zone_pin(ui, canvas, mx + entry["x"] * mw, my + entry["y"] * mh, portal)
     completion_corner(ui, canvas, rects, live.model.completion[ui_map], name, collapsed)
     button = map_button(ui, canvas, rects, live.model.count(ui_map))
+    if entrance:
+        # AtlasLootClassic_DungeonsAndRaids' BFD fixture: entry level 15, recommended levels 24-32.
+        # The companion owns the dataset; this one preview fixture is not shipped as runtime data.
+        group, objective = next(
+            (group, objective)
+            for group in groups
+            for objective in group["objectives"]
+            if objective["entry"].get("instance") == 48
+        )
+        reward = next(
+            int(row["Amount"])
+            for row in ui.wago.db2("TraitCurrencySource")
+            if row["TraitCurrencyID"] == "4225" and int(row["AchievementID"]) == group["challenge"]
+        )
+        panel = tooltip(
+            ui,
+            [
+                TooltipLine(live.name(group["challenge"])),
+                TooltipLine(f"Dungeon or raid: {objective['text']}"),
+                # Level-24 preview: the lower end sets the whole range colour, using QuestDifficultyColors.
+                TooltipLine(
+                    f"Recommended levels: {colored('24-32', (1, 0.82, 0))} (AtlasLoot)",
+                    ui.global_color("NORMAL_FONT_COLOR"),
+                ),
+                TooltipLine(
+                    f"{fitted_markup(ui, POINTS_ICON, 14)} {reward} Legacy {'point' if reward == 1 else 'points'}",
+                    ui.global_color("NORMAL_FONT_COLOR"),
+                ),
+                TooltipLine("Click to set a waypoint here.", ui.global_color("GREEN_FONT_COLOR")),
+            ],
+        )
+        entry = objective["entry"]
+        canvas.paste(panel, mx + entry["x"] * mw + 16, my + entry["y"] * mh)
     return canvas, button
 
 
@@ -502,6 +537,11 @@ def render_map(ui, data, live):
     entries = main_menu(ui, live)
     menu, x, y, _ = menu_at(ui, entries, right=bx + bw, top=by + bh)
     return scene(ui, [(canvas, 0, 0), (menu, x, y)])
+
+
+def render_entrance(ui, data, live):
+    canvas, _ = world_map(ui, data, live, entrance=True)
+    return scene(ui, [(canvas, 0, 0)])
 
 
 def render_menu(ui, data, live):
@@ -717,6 +757,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for name, render in (
         ("map", render_map),
+        ("entrance", render_entrance),
         ("menu", render_menu),
         ("continent", render_continent),
         ("unvisited", render_unvisited),

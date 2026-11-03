@@ -26,6 +26,7 @@ local _, addon = ...
 ---@field OpenMapMenu fun()
 ---@field Navigate fun(uiMapID: number, x: number, y: number, title: string)
 ---@field NavigateHint fun(): string
+---@field DungeonLevelRange fun(instance: number): number?, number?, string? recommended range from installed AtlasLoot
 ---@field Guide fun(uiMapID: number, x: number, y: number, title: string): boolean, ("combat"|"unavailable")?
 ---@field SafeCall fun(label: string, fn: function, ...: any): boolean, ... run fn as pcall does (Core/SafeCall.lua)
 ---@field RecordError fun(label: string, message: any, stack?: string) keep an error caught another way, for the report

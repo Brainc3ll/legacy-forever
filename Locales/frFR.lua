@@ -147,3 +147,5 @@ L["the objective tracker isn't available, so tracked challenges can't be shown."
 L["updated to %s. %s"] = "mis à jour vers %s. %s"
 
 L["The update message reflects the current release."] = "Le message de mise à jour correspond à la version actuelle." -- mt
+L["Install AtlasLoot for recommended levels."] = "Installez AtlasLoot pour afficher les niveaux recommandés." -- mt
+L["Recommended levels: %s (AtlasLoot)"] = "Niveaux recommandés : %s (AtlasLoot)" -- mt

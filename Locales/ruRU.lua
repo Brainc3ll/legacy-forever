@@ -159,3 +159,6 @@ L["What happened, or what you would like"] =
 
 L["The update message reflects the current release."] =
 	"Сообщение об обновлении соответствует текущей версии." -- mt
+L["Install AtlasLoot for recommended levels."] =
+	"Установите AtlasLoot, чтобы увидеть рекомендуемые уровни." -- mt
+L["Recommended levels: %s (AtlasLoot)"] = "Рекомендуемые уровни: %s (AtlasLoot)" -- mt

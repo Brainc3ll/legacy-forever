@@ -146,3 +146,5 @@ L["Title"] = "Título"
 L["What happened, or what you would like"] = "O que aconteceu, ou o que você gostaria"
 
 L["The update message reflects the current release."] = "A mensagem de atualização corresponde à versão atual." -- mt
+L["Install AtlasLoot for recommended levels."] = "Instale AtlasLoot para ver os níveis recomendados." -- mt
+L["Recommended levels: %s (AtlasLoot)"] = "Níveis recomendados: %s (AtlasLoot)" -- mt

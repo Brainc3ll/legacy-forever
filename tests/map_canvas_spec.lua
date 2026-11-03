@@ -177,6 +177,40 @@ Kit.Tick()
 pin:Run("OnEnter")
 check(tooltip.owner == pin and pin.Highlight.shown, "pointing at a pin highlights it and shows its tooltip")
 check(tooltip.lines[#tooltip.lines] == "Click to travel there.", "the tooltip says what a click does")
+-- Entrances use the companion's recommended band, and retain useful guidance without it.
+local entrance = { text = "Blackfathom Deeps", entry = { kind = "instance", instance = 48, x = 0.25, y = 0.5 } }
+local range = true
+GetQuestDifficultyColor = function(level)
+	check(level == 24, "the entire range uses its lower level for difficulty")
+	return { code = "ffffd100" }
+end
+RGBTableToColorCode = function(color)
+	return color.code
+end
+WrapTextInColorCode = function(text, code)
+	return "|c" .. code .. text .. "|r"
+end
+ns.DungeonLevelRange = function(instance)
+	check(instance == 48, "the tooltip queries its entrance's instance ID")
+	if range then
+		return 24, 32
+	end
+	return nil, nil, "Install AtlasLoot for recommended levels."
+end
+pin:Run("OnLeave")
+pin.objective = entrance
+pin:Run("OnEnter")
+check(
+	tooltip.lines[3] == "Recommended levels: |cffffd10024-32|r (AtlasLoot)",
+	"the entrance shows the recommended range"
+)
+range = false
+pin:Run("OnLeave")
+pin:Run("OnEnter")
+check(tooltip.lines[3] == "Install AtlasLoot for recommended levels.", "missing companion guidance reaches the tooltip")
+pin:Run("OnLeave")
+pin.objective = objective
+pin:Run("OnEnter")
 Kit.mouseOver = pin
 Kit.Fire("GLOBAL_MOUSE_DOWN", "LeftButton")
 Kit.Fire("GLOBAL_MOUSE_UP", "LeftButton")

@@ -12,6 +12,8 @@ optional `### For addon authors` subsection after a version's player bullets.
 
 ## [Unreleased]
 
+- **Dungeon entrance tooltips show recommended levels.** With AtlasLoot installed, each known entrance shows its recommended range, coloured for your level. Wings sharing one entrance use a combined range; unknown ranges stay absent, thanks to overspark for the idea.
+
 ## [1.0.3] - 2026-11-03
 
 - **The update message reflects the current release.** The chat notice no longer announces the first stable release after a newer update.
