@@ -1,5 +1,10 @@
 ---@meta
 
--- Leatrix Maps' saved settings, read only for the reveal switch (WFA-14 keeps every setting declared).
----@type {RevealMap: string?}?
+-- The one part of Leatrix Maps the map shading reads. Leatrix is an optional third-party addon,
+-- so RevealedByLeatrix checks the global at runtime before using it.
+
+---@class LegacyLeatrixMapsDB
+---@field RevealMap? string "On" while Leatrix Maps reveals the whole map
+
+---@type LegacyLeatrixMapsDB?
 LeaMapsDB = nil
