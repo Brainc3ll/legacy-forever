@@ -14,7 +14,7 @@ permissions: {}
 
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       pull-requests: write
@@ -48,9 +48,18 @@ jobs:
         run: |
           python3 tools/gen_legacy.py
           python3 tools/check_generated.py --offline
+      # Ubuntu 24.04's release-pocket builds, which the archive never replaces.
+      - name: Install LuaJIT and luacheck
+        if: steps.build.outputs.new == 'true'
+        env:
+          LUAJIT: 2.1.0+git20231223.c525bcb+dfsg-1
+          LUACHECK: 1.1.2-1
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends --allow-downgrades \
+            "luajit=$LUAJIT" "libluajit-5.1-2=$LUAJIT" "libluajit-5.1-common=$LUAJIT" "lua-check=$LUACHECK"
       - if: steps.build.outputs.new == 'true'
         run: |
-          sudo apt-get update && sudo apt-get install -y luajit lua-check
           luacheck .
           for spec in tests/*_spec.lua; do luajit "$spec" || exit 1; done
       - if: steps.build.outputs.new == 'true'
@@ -88,7 +97,7 @@ jobs:
   ci:
     needs: refresh
     if: needs.refresh.outputs.operation == 'created' || needs.refresh.outputs.operation == 'updated'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       actions: write
     steps:
@@ -102,7 +111,7 @@ jobs:
     needs: [refresh, ci]
     # The first attempt stays quiet: retry-refresh.yml re-runs it, and only a failed re-run is reported.
     if: failure() && github.run_attempt > 1 && github.ref_name == github.event.repository.default_branch
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       issues: write
     steps:
