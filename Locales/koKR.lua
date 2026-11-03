@@ -152,3 +152,5 @@ L["What happened, or what you would like"] = "무슨 일이 있었는지 또는 
 
 L["The update message reflects the current release."] =
 	"업데이트 메시지가 현재 버전의 내용을 안내합니다." -- mt
+L["Install AtlasLoot for recommended levels."] = "권장 레벨을 보려면 AtlasLoot를 설치하세요." -- mt
+L["Recommended levels: %s (AtlasLoot)"] = "권장 레벨: %s (AtlasLoot)" -- mt

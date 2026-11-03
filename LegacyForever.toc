@@ -9,7 +9,7 @@
 ## X-Curse-Project-ID: 1705879
 ## X-Wago-ID: b6mzA7KP
 ## IconTexture: Interface\AddOns\LegacyForever\media\Icon
-## OptionalDeps: ShortestPathForever, QuestieDB, Questie
+## OptionalDeps: ShortestPathForever, QuestieDB, Questie, AtlasLootClassic
 ## SavedVariables: LegacyForeverDB
 ## LoadSavedVariablesFirst: 1
 ## AddonCompartmentFunc: LegacyForever_OnAddonCompartmentClick
@@ -35,6 +35,7 @@ Core\Model.lua
 Core\Live.lua
 Integrations\Quests.lua
 Integrations\Navigate.lua
+Integrations\AtlasLoot.lua
 Core\ZoneCompletion.lua
 UI\TrackerQuestie.lua
 UI\TrackerLock.lua

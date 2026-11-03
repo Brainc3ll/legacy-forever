@@ -14,7 +14,7 @@ globals = { "AdventureGuideForeverDB", "ForeverFamily", "ForeverMapMarkers", "Fo
 	"SlashCmdList",
 }
 
-read_globals = { "CreateFramePoolCollection", "C_XMLUtil", "CreateSettingsButtonInitializer", "Settings",
+read_globals = { "GetQuestDifficultyColor", "RGBTableToColorCode", "WrapTextInColorCode", "AtlasLoot", "CreateFramePoolCollection", "C_XMLUtil", "CreateSettingsButtonInitializer", "Settings",
 	"AchievementFrame_SelectAchievement", "AlertFrame", "C_AddOns", "AlertFrame_OnClick", "C_Map", "C_MapExplorationInfo", "C_QuestLog", "C_Reputation", "C_SuperTrack", "C_TaxiMap", "C_Timer", "C_Texture", "C_Traits", "CreateAtlasMarkup",
 	"CreateFrame", "CreateFromMixins", "CreateTexturePool", "DEFAULT_CHAT_FRAME", "Enum", "EventRegistry", "EventUtil", "GameTooltip",
 	"GameFontNormal", "GameFontNormalSmall", "GameFontNormalTiny", "GameTooltip_AddBlankLineToTooltip", "GameTooltip_AddColoredLine", "GameTooltip_AddDisabledLine", "GetCursorPosition", "GRAY_FONT_COLOR", "GREEN_FONT_COLOR", "HIGHLIGHT_FONT_COLOR", "NORMAL_FONT_COLOR", "GameTooltip_AddHighlightLine", "GameTooltip_AddInstructionLine",
@@ -42,6 +42,7 @@ files["tests/live_spec.lua"] = {
 files["tests/quests_spec.lua"] = {
 	globals = { "LibQuestieDB", "Questie", "QuestieLoader", "UnitClass", "UnitFactionGroup", "UnitRace" },
 }
+files["tests/dungeon_levels_spec.lua"] = { globals = { "AtlasLoot", "InCombatLockdown" } }
 files["tests/map_contents_spec.lua"] = { globals = { "C_Map", "Enum" } }
 files["tests/navigate_spec.lua"] = {
 	globals = { "C_AddOns", "C_Map", "C_SuperTrack", "UiMapPoint", "ShortestPathForever" },
@@ -53,6 +54,7 @@ files["tests/map_canvas_spec.lua"] = {
 		"EventUtil", "REPUTATION", "WHITE_FONT_COLOR", "Enum", "GameTooltip", "GameTooltip_SetTitle", "GameTooltip_AddNormalLine",
 		"GameTooltip_AddHighlightLine", "GameTooltip_AddInstructionLine", "GameTooltip_AddDisabledLine",
 		"GameTooltip_AddColoredLine", "C_InputInterfaceStyle", "SoftCursor",
+        "GetQuestDifficultyColor", "RGBTableToColorCode", "WrapTextInColorCode",
 	},
 }
 files["tests/api_spec.lua"] = {

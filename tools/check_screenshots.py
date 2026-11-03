@@ -29,6 +29,8 @@ SOURCES = (
     "Core/Model.lua",
     "UI/Completion.lua",
     "UI/MapContents.lua",
+    "UI/Map.lua",
+    "Integrations/AtlasLoot.lua",
     "UI/Tracker.lua",
     "media/Shade.tga",
 )

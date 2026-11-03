@@ -20,6 +20,7 @@ machine-translated lines (marked `-- mt`) for new strings, under this addon's li
 | Input | Used for | Licence |
 |---|---|---|
 | Questie and QuestieDB, if installed | A zone's quests for the Quests category | QuestieDB carries no licence; nothing is copied |
+| AtlasLoot Classic, if installed | Recommended dungeon levels, through its public ItemDB and Loader APIs | GPL-2.0; nothing is copied |
 | Shortest Path Forever, if installed | Routes to a zone or objective, through its public API | GPL-3.0-or-later |
 
 ## Build and test only
@@ -44,7 +45,7 @@ Credit for the ideas, translations and reports behind the addon.
 | [Polestar](https://github.com/fitzforge/polestar) by Fitz | Drawing the world map on frames of its own, which the map never touches. From cjber/adventure-guide-forever's issues: `/lf report` with its copy box and caught errors (#156), the issue forms (#157), the zip check (#158), `tools/doctor.py` (#160), the stale-screenshot check (#161), this file (#162), the "For addon authors" changelog subsection (#163) and `.editorconfig` (#165). | GPL-3.0. Inspired only; no code was copied. Fitz is welcome to use our code. |
 | Brainc3ll | The French translation (#99) | |
 | Bigabyte | Found the quest tracker shifting when moved in Edit Mode (#103) | |
-| overspark | Asked on CurseForge for a way to hide the dungeon and raid entrance pins, which became *Show dungeon and raid entrances* (#139); the same comment prompted drawing a cleared dungeon or raid entrance faded so finished and unfinished instances read differently | |
+| overspark | Asked on CurseForge for a way to hide the dungeon and raid entrance pins, which became *Show dungeon and raid entrances* (#139), and level ranges on entrance tooltips (#222); the same comment prompted drawing a cleared dungeon or raid entrance faded so finished and unfinished instances read differently | |
 | deathmvp1 and berserkerlxl, on CurseForge | Found Questie's quest list covering the Forever tracker sections, which now move clear of it (cjber/shortest-path-forever#214) | |
 | [Mouchoir](https://github.com/Mouchoir) | Found the Lua errors the map button raised as the world map loaded, and wrote the fix (#148, #147, merged as #149) | Code contributor |
 | [DanielVafidis](https://github.com/DanielVafidis) | Reported the addons breaking Questie, fixed in 0.11.2 when nothing of ours was anchored to Questie's quest list any more (#150) | |

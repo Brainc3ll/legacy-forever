@@ -99,6 +99,17 @@ local function AddPinTooltip(tooltip, group, objective)
 		GameTooltip_SetTitle(tooltip, ns.Live.Name(group.challenge))
 		local label = KIND_LABEL[objective.entry.kind]
 		GameTooltip_AddColoredLine(tooltip, ("%s: %s"):format(label, objective.text), WHITE_FONT_COLOR)
+		if objective.entry.kind == "instance" and objective.entry.instance then
+			local minimum, maximum, hint = ns.DungeonLevelRange(objective.entry.instance)
+			if minimum and maximum then
+				local color = GetQuestDifficultyColor(minimum)
+				local range = ("%d-%d"):format(minimum, maximum)
+				local text = WrapTextInColorCode(range, (RGBTableToColorCode(color)))
+				GameTooltip_AddNormalLine(tooltip, L["Recommended levels: %s (AtlasLoot)"]:format(text))
+			elseif hint then
+				GameTooltip_AddDisabledLine(tooltip, hint)
+			end
+		end
 		if objective.done then
 			GameTooltip_AddColoredLine(tooltip, L["Already complete"], GREEN_FONT_COLOR)
 		end

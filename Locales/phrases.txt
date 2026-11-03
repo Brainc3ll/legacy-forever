@@ -61,6 +61,7 @@ L["Forever addons"] = "Forever addons"
 L["Forever tracker"] = "Forever tracker"
 L["Hide from the tracker"] = "Hide from the tracker"
 L["In the objective tracker"] = "In the objective tracker"
+L["Install AtlasLoot for recommended levels."] = "Install AtlasLoot for recommended levels."
 L["Install Shortest Path Forever to have the route plotted for you."] =
 	"Install Shortest Path Forever to have the route plotted for you."
 L["Installed, turned off"] = "Installed, turned off"
@@ -97,6 +98,7 @@ L["Plans the quickest way anywhere and guides you there, with live boat and zepp
 L["Quest"] = "Quest"
 L["Quest automation, rare alerts and merchant handling for the default UI."] =
 	"Quest automation, rare alerts and merchant handling for the default UI."
+L["Recommended levels: %s (AtlasLoot)"] = "Recommended levels: %s (AtlasLoot)"
 L["Repeatable, holiday and profession quests are left out."] = "Repeatable, holiday and profession quests are left out."
 L["Report a bug or request a feature"] = "Report a bug or request a feature"
 L["Reputations (Friendly)"] = "Reputations (Friendly)"
