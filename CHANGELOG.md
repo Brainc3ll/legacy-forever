@@ -12,7 +12,7 @@ optional `### For addon authors` subsection after a version's player bullets.
 
 ## [Unreleased]
 
-- **Keep a cumulative record of observed flight paths.** A path already seen at a flight master stays in this character's history when it later appears unreachable. The map still shows the current state.
+- **Keep a cumulative record of observed flight paths.** A path already seen at a flight master stays in this character's history when it later appears unreachable. The map still shows the current state. Only an opened flight map can add an observation.
 
 ## [1.0.6] - 2026-11-03
 
